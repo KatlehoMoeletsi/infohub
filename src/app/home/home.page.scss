@@ -22,3 +22,7 @@
 ion-button {
   margin-top: 10px;
 }
+ion-button.custom-pink {
+  --background: #ff69b4; /* Pink background */
+  --color: white; /* Text color */
+}
