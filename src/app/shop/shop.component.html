@@ -1,0 +1,72 @@
+<main class="main-container">
+  <!-- Categories Sidebar -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Our Service</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </nav>
+  <aside>
+      <h2>Categories</h2>
+      <ul>
+          <li>Clothing (100)</li>
+          <li>T-Shirts (50)</li>
+          <li>Polo T-Shirts (20)</li>
+          <li>Round Neck T-Shirts (10)</li>
+          <li>V Neck T-Shirts (10)</li>
+          <li>Hooded T-Shirts (20)</li>
+          <li>Footwear (50)</li>
+          <li>Men (150)</li>
+          <li>Accessories (11)</li>
+          <li>Bags (22)</li>
+      </ul>
+      <label for="price">Price:</label>
+      <input type="range" id="price" min="0" max="100">
+  </aside>
+
+  <!-- Content Wrapper -->
+  <div class="content-wrapper">
+      <!-- Product Grid -->
+      <section class="product-grid">
+          <div class="product">
+              <div class="badge sale">SALE</div>
+              <p class="product-title">Lorem ipsum dolor sit amet</p>
+              <p class="price">$9.79</p>
+          </div>
+          <div class="product">
+              <div class="badge new">NEW</div>
+              <p class="product-title">Lorem ipsum dolor sit amet</p>
+              <p class="price">$9.79</p>
+          </div>
+          <div class="product">
+              <div class="badge sale">SALE</div>
+              <p class="product-title">Lorem ipsum dolor sit amet</p>
+              <p class="price">$9.79</p>
+          </div>
+          <div class="product">
+              <div class="badge new">NEW</div>
+              <p class="product-title">Lorem ipsum dolor sit amet</p>
+              <p class="price">$9.79</p>
+          </div>
+      </section>
+
+      <!-- Book Carousel (Bottom) -->
+      <div class="carousel-container">
+          <!-- Left Navigation -->
+          <button class="nav-button prev" (click)="moveCarousel(-1)">&#10094;</button>
+
+          <!-- Carousel Items -->
+          <div class="carousel-wrapper">
+              <div class="carousel" [style.transform]="'translateX(' + translateX + 'px)'">
+                  <div class="book-item" *ngFor="let book of books">
+                      <img [src]="book.image" [alt]="book.title" />
+                  </div>
+              </div>
+          </div>
+
+          <!-- Right Navigation -->
+          <button class="nav-button next" (click)="moveCarousel(1)">&#10095;</button>
+      </div>
+  </div>
+</main>
