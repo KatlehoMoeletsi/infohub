@@ -1,43 +1,92 @@
-
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-  <title>Contact Us</title>
-</head>
 <body>
-  
-  <nav class="navbar">
+ 
+  <nav>
     <ul>
+      <span class="book-icon">📚</span>
       <li><a href="#">Home</a></li>
       <li><a href="#">Our Service</a></li>
       <li><a href="#">Contact Us</a></li>
     </ul>
   </nav>
 
+ 
   <section class="contact-section">
-    <h1>Contact Us</h1>
-    <div class="contact-container">
-      <div class="contact-info">
-        <h2>CONTACT INFO</h2>
-        <p>When it comes to searching for books, there is only one place to turn to – Book Hub. We have a veritable collection of books that span categories as diverse as you could possibly expect.</p>
-      </div>
-
-      <div class="contact-form">
-        <h2>GET IN TOUCH</h2>
-        <form action="#">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required>
-
-          <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" required>
-
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      
+    <div class="contact-info">
+      <h2>CONTACT INFO</h2>
+      <p>When it comes to searching for books, there is only one place to turn to – Book Hub. We have a veritable collection of books that span categories as diverse as you could possibly expect.</p>
+      <p><i class="fas fa-map-marker-alt"></i> Address: Mussoorie, Diversion Road, Makka Wala, Uttarakhand, Pin 248008</p>
+      <p><i class="fas fa-phone"></i> Phone: +91-7891766450</p>
+      <p><i class="fas fa-envelope"></i> Email: bookhub2020mail.com</p>
     </div>
-  </section>
-</body>
 
+    <div class="contact-form">
+      <h2>GET IN TOUCH</h2>
+      <form #contactForm="ngForm" (ngSubmit)="endMessage(contactForm)">
+        <input 
+          type="text" 
+          name="name" 
+          ngModel 
+          placeholder="Your Name" 
+          required 
+        />
+        <input 
+          type="email" 
+          name="email" 
+          ngModel 
+          placeholder="Your Email" 
+          required 
+        />
+        <input 
+          type="text" 
+          name="subject" 
+          ngModel 
+          placeholder="Subject" 
+          required 
+        />
+        <textarea 
+          name="message" 
+          ngModel 
+          placeholder="Your Message" 
+          rows="5" 
+          required>
+        </textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+    
+    <!-- Popup Modal -->
+    <div class="modal" *ngIf="showPopup">
+      <div class="modal-content">
+        <span class="close-button" (click)="closePopup()">&times;</span>
+        <h3>{{ feedbackTitle }}</h3>
+        <p>{{ feedbackMessage }}</p>
+      </div>
+    </div>
+    
+    
+  </section>
+
+  <div class="carousel-container">
+   
+    <button class="nav-button prev" (click)="moveCarousel(-1)">&#10094;</button>
+
+ 
+    <div class="carousel-wrapper">
+        <div class="carousel" [style.transform]="'translateX(' + translateX + 'px)'">
+            <div class="book-item" *ngFor="let book of books">
+                <img [src]="book.image" [alt]="book.title" />
+            </div>
+        </div>
+    </div>
+
+   
+    <button class="nav-button next" (click)="moveCarousel(1)">&#10095;</button>
+</div>
+<footer>
+  <p>Contact The Developer:  Moeletsi K  | Email: 
+    katlehomoeletsi20011&#64;gmail.com
+  </p>
+  
+  <p>&copy; 2024 Infohub . All rights reserved.</p>
+</footer>
+</body>

@@ -1,102 +1,229 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    overflow-y: auto; 
   }
   
-  header {
-    background-color: #222;
-    color: #fff;
+ 
+  nav {
+    background-color: white;
     padding: 10px 20px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    height: 12%;
   }
   
-  .header-content {
+  nav ul {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .header-right {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  
-  .logo img {
-    width: 100px;
-  }
-  
-  .navbar {
-    background-color: #333;
-    padding: 10px 20px;
-  }
-  
-  .navbar ul {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
+    justify-content: center; 
+    list-style: none;
+    margin: 0;
     padding: 0;
   }
   
-  .navbar li {
+  nav ul li {
     margin: 0 15px;
   }
   
-  .navbar a {
-    color: white;
+  nav ul li a {
     text-decoration: none;
+    color: #333;
+    font-weight: bold;
   }
   
-  .navbar a:hover {
-    text-decoration: underline;
+  nav ul li a:hover {
+    color: #ff5757;
   }
   
-  .contact-section {
-    padding: 50px;
-    background-color: #f4f4f4;
-  }
-  
-  .contact-container {
+  /* Contact Section */
+  /* Contact Section Styles */
+.contact-section {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; /* Allow responsive wrapping */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px 20px; /* Add horizontal padding */
+    gap: 20px; /* Space between items */
   }
   
-  .contact-info,
-  .contact-form {
-    width: 45%;
+  .contact-info {
+    width: 35%;
+    background-color: #f4f8fb;
+    padding: 20px;
+  }
+  
+  .contact-info h2 {
+    font-weight: bold;
+    margin-bottom: 15px;
   }
   
   .contact-info p {
+    color: #333;
+    font-size: 14px;
     line-height: 1.6;
   }
   
+  .contact-info i {
+    color: #ff5757;
+    margin-right: 10px;
+  }
+  
+  .contact-form {
+    width: 50%;
+  }
+  
+  .contact-form h2 {
+    margin-bottom: 20px;
+  }
+  
   .contact-form input,
-  .contact-form button {
+  .contact-form textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 14px;
   }
   
   .contact-form button {
-    background-color: #e53935;
+    background-color: #e41c1c;
     color: white;
     border: none;
+    padding: 12px 20px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
   }
   
   .contact-form button:hover {
-    background-color: #d32f2f;
+    background-color: #cc1919;
   }
   
-  h1 {
+  /* Modal (Popup) Styles */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    padding: 20px 40px;
+    border-radius: 10px;
     text-align: center;
-    margin-bottom: 40px;
+    width: 90%;
+    max-width: 400px;
+    animation: fadeIn 0.3s ease-out;
+    position: relative;
   }
   
-  h2 {
-    color: #333;
-    margin-bottom: 10px;
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #e41c1c;
+    cursor: pointer;
   }
+  
+  .close-button:hover {
+    color: #cc1919;
+  }
+  
+  .modal-content h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+  
+  .modal-content p {
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+ 
+  .carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 100%;
+  }
+  
+  .carousel-wrapper {
+    overflow: hidden; 
+    width: 100%;
+  }
+  
+  .carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  
+  .carousel img {
+    width: 200px; 
+    height: 250px; 
+    object-fit: cover; 
+    border-radius: 8px;
+    margin: 0 10px; 
+  }
+  
+ 
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 18px;
+  }
+  
+  .nav-button.left {
+    left: 10px;
+  }
+  
+  .nav-button.right {
+    right: 10px;
+  }
+footer {
+        background: #333;
+        color: #fff;
+        text-align: center;
+        padding: 1rem 0;
+        margin-top: auto; 
+      }
+      
   
