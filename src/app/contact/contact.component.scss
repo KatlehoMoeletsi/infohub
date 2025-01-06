@@ -225,5 +225,9 @@ footer {
         padding: 1rem 0;
         margin-top: auto; 
       }
+      ion-button.custom-pink {
+        --background: #ff69b4; /* Pink background */
+        --color: black; /* Text color */
+      }
       
   
